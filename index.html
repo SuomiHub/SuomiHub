@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuomiHub - Learn Finnish</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Warm Beige Theme */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #f3e9dc 100%);
+            --primary-color: #d48a6a; /* Warm terracotta */
+            --primary-hover: #bc7455;
+            --text-dark: #4a3f35;
+            --text-light: #6a5e52;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 5% 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* Typography */
+        h1, h2, h3 { color: var(--text-dark); }
+        p { color: var(--text-light); margin-bottom: 1rem; }
+
+        /* Hero Section */
+        #home {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-top: 120px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text span {
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover { background: var(--primary-hover); }
+
+        /* Cards Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vocab-list { list-style: none; margin-top: 1rem;}
+        .vocab-list li { margin-bottom: 0.5rem; font-weight: 600; }
+        .vocab-list span { font-weight: 400; color: var(--text-light); }
+
+        /* Specific Sections Styling */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text { flex: 1; }
+        .about-image { flex: 1; text-align: center; }
+        .about-image img { width: 100%; max-width: 400px; border-radius: 20px; }
+
+        .contact-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(74, 63, 53, 0.1);
+            color: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(253, 251, 247, 0.95);
+                text-align: center;
+                padding: 1rem 0;
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            #home { flex-direction: column; text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .about-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="logo">SuomiHub</a>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#lessons" onclick="toggleMenu()">Lessons</a></li>
+            <li><a href="#tips" onclick="toggleMenu()">Tips & Tricks</a></li>
+            <li><a href="#blog" onclick="toggleMenu()">Blog</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About Us</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-text">
+            <h1>Tervetuloa!<br>Welcome to <span>SuomiHub</span></h1>
+            <p>Your warm, practical, and friendly guide to mastering the Finnish language. Step by step, we help you connect with the culture, communicate with confidence, and feel at home in Finland.</p>
+            <a href="#lessons" class="btn">Start Learning Today</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning together">
+        </div>
+    </section>
+
+    <section id="lessons">
+        <h2 class="section-title">Lessons & Learning</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Learning Finnish may feel challenging in the beginning, but every language starts with small steps. At SuomiHub, we focus on simple, practical lessons that help students use Finnish in everyday situations. Our beginner lessons introduce the most important parts of the language.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>👋 Greetings</h3>
+                <ul class="vocab-list">
+                    <li>Hei <span>– Hi</span></li>
+                    <li>Hyvää huomenta <span>– Good morning</span></li>
+                    <li>Kiitos <span>– Thank you</span></li>
+                    <li>Anteeksi <span>– Sorry / Excuse me</span></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🔢 Numbers</h3>
+                <ul class="vocab-list">
+                    <li>1 <span>– yksi</span></li>
+                    <li>2 <span>– kaksi</span></li>
+                    <li>3 <span>– kolme</span></li>
+                    <li>4 <span>– neljä</span></li>
+                    <li>5 <span>– viisi</span></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>💬 Simple Sentences</h3>
+                <ul class="vocab-list">
+                    <li>Minun nimeni on... <span>– My name is...</span></li>
+                    <li>Missä on kirjasto? <span>– Where is the library?</span></li>
+                    <li>Tarvitsen apua <span>– I need help</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h3>How to start learning Finnish step by step:</h3>
+            <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-light);">
+                <li>Begin with simple greetings and daily expressions.</li>
+                <li>Practice pronunciation by repeating words aloud.</li>
+                <li>Learn a few new words every day.</li>
+                <li>Use Finnish in real-life situations such as shops, buses, or restaurants.</li>
+                <li>Practice regularly and celebrate small progress.</li>
+            </ul>
+            <h4 style="margin-top: 1.5rem; color: var(--primary-color);">⏱ Short practice tips:</h4>
+            <p>Practice for 10–15 minutes every day. Listen to Finnish music or watch short videos. Write down new words and review them often. <em>Learning slowly but consistently will help you build confidence and enjoy the process.</em></p>
+        </div>
+    </section>
+
+    <section id="tips">
+        <h2 class="section-title">Tips & Tricks</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Learning a new language becomes easier when you use the right strategies. This page shares practical tips that help students learn Finnish faster and more effectively.</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🧠 Learning Strategies</h3>
+                <p>• Study a few words every day instead of memorizing long lists.</p>
+                <p>• Practice speaking even if you make mistakes.</p>
+                <p>• Review vocabulary regularly to improve memory.</p>
+            </div>
+            <div class="card">
+                <h3>🛠 Helpful Tools</h3>
+                <p>• Language learning apps such as Duolingo and Memrise can help build vocabulary.</p>
+                <p>• Finnish podcasts and YouTube videos can improve listening skills.</p>
+                <p>• Online flashcards can help review words quickly.</p>
+            </div>
+            <div class="card">
+                <h3>⚠️ Mistakes to Avoid</h3>
+                <p>• Trying to learn everything at once.</p>
+                <p>• Being afraid to speak because of mistakes.</p>
+                <p>• Skipping practice for long periods of time.</p>
+            </div>
+        </div>
+        <p style="text-align: center; font-weight: 600; margin-top: 2rem; color: var(--primary-color);">Remember, consistency is more important than perfection.</p>
+    </section>
+
+    <section id="blog">
+        <h2 class="section-title">Blog & Inspiration</h2>
+        <p style="text-align: center; margin-bottom: 3rem;">The blog section shares inspiring stories, useful advice, and creative ideas for learning Finnish.</p>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead27d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Journal and coffee" style="width: 100%; border-radius: 10px; margin-bottom: 1rem;">
+                <h3 style="color: var(--primary-color);">📖 How I Learned Finnish in 3 Months</h3>
+                <p>This article tells the story of a student who started from zero and gradually improved through daily practice, conversation with friends, and consistent learning.</p>
+                <a href="#" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">Read Story →</a>
+            </div>
+
+            <div class="card">
+                <h3>💡 Fun Learning Ideas</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-light);">
+                    <li>Watch a Finnish TV show with subtitles.</li>
+                    <li>Learn five new words every day.</li>
+                    <li>Try speaking Finnish with a friend for ten minutes daily.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Mini Challenges</h3>
+                <p>These small challenges help learners stay motivated and enjoy the journey.</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-light);">
+                    <li>Introduce yourself completely in Finnish.</li>
+                    <li>Learn ten new words in one week.</li>
+                    <li>Have a short conversation using simple phrases.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Welcome to SuomiHub!</h3>
+                <p>Learning a new language can feel overwhelming at times, but it’s also a journey full of excitement and discovery. We created this website for students just like you — those who dream of speaking Finnish with confidence, feeling at home in a new country, and connecting with people around them.</p>
+                <p>Here at SuomiHub, you’ll find step-by-step lessons, essential vocabulary, practical tips, and interactive exercises designed to help you not just learn words, but truly communicate, understand, and feel part of Finland.</p>
+                <p>Whether you’re walking through campus, chatting with classmates, or exploring the streets of a new city, SuomiHub is here to guide you every step of the way, making your Finnish journey inspiring, achievable, and a little more fun each day.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Beautiful Helsinki Finland">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Community & Contact</h2>
+        <div class="contact-container">
+            <h3>Join Our Growing Community</h3>
+            <p>SuomiHub is more than just a learning platform. It is a growing community for students who want to learn Finnish and support each other along the way.</p>
+            
+            <p>Students are encouraged to interact with each other, share their progress, and help create a positive and supportive learning environment.</p>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(212, 138, 106, 0.1); border-radius: 10px;">
+                <h4 style="color: var(--primary-color);">Get in Touch</h4>
+                <p>If you have questions, suggestions, or feedback, feel free to contact us.</p>
+                <p style="font-weight: 600; font-size: 1.2rem;">📧 suomihub@gmail.com</p>
+            </div>
+
+            <p>Follow SuomiHub on social media to receive new lessons, learning tips, and updates!</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
+                <a href="#" class="btn">Instagram</a>
+                <a href="#" class="btn">Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SuomiHub. Made with ☕ for Finnish learners.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (window.innerWidth <= 768) {
+                navLinks.classList.toggle('active');
+            }
+        }
+    </script>
+</body>
+</html>
