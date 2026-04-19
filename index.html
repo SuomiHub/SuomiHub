@@ -9,12 +9,18 @@
         /* CSS Variables for Warm Beige Theme */
         :root {
             --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #f3e9dc 100%);
-            --primary-color: #d48a6a; /* Warm terracotta */
+            --primary-color: #d48a6a; 
             --primary-hover: #bc7455;
             --text-dark: #4a3f35;
             --text-light: #6a5e52;
             --card-bg: rgba(255, 255, 255, 0.7);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            
+            /* Chart Colors */
+            --c1: #d48a6a; /* Terracotta */
+            --c2: #e9c46a; /* Saffron */
+            --c3: #2a9d8f; /* Teal */
+            --c4: #f4a261; /* Sandy */
         }
 
         * {
@@ -73,7 +79,6 @@
             color: var(--primary-color);
         }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
@@ -96,15 +101,8 @@
             color: var(--primary-color);
         }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            color: var(--text-dark);
-        }
-
-        p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
+        h1, h2, h3, h4 { color: var(--text-dark); }
+        p { color: var(--text-light); margin-bottom: 1rem; }
 
         /* Hero Section */
         #home {
@@ -116,29 +114,11 @@
             padding-top: 120px;
         }
 
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-text span {
-            color: var(--primary-color);
-        }
-
-        .hero-image {
-            flex: 1;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
+        .hero-text span { color: var(--primary-color); }
+        .hero-image { flex: 1; }
+        .hero-image img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); }
 
         .btn {
             display: inline-block;
@@ -150,10 +130,6 @@
             font-weight: 600;
             transition: background 0.3s ease;
             margin-top: 1rem;
-        }
-
-        .btn:hover {
-            background: var(--primary-hover);
         }
 
         /* Cards Layout */
@@ -169,120 +145,83 @@
             border-radius: 15px;
             box-shadow: var(--shadow);
             border: 1px solid rgba(255,255,255,0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .vocab-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .vocab-list li {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .vocab-list span {
-            font-weight: 400;
-            color: var(--text-light);
-        }
-
-        /* Survey Charts */
-        .chart-container {
-            margin-top: 1.5rem;
-        }
-        .bar-wrapper {
             margin-bottom: 1rem;
         }
+
+        /* Chart Styling */
+        .chart-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .pie-chart {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .bar-container {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .bar-row {
+            margin-bottom: 8px;
+        }
+
         .bar-label {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 5px;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            margin-bottom: 4px;
         }
+
         .bar-bg {
             background: #eee;
-            height: 12px;
-            border-radius: 6px;
+            height: 10px;
+            border-radius: 5px;
             overflow: hidden;
         }
+
         .bar-fill {
-            background: var(--primary-color);
             height: 100%;
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
-        /* About & Personas styling */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+        .legend {
+            font-size: 0.8rem;
+            text-align: left;
+            width: 100%;
         }
 
-        .persona-bullets {
-            margin-left: 1.2rem;
-            margin-bottom: 1rem;
+        .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+        /* General List Styling */
+        .full-list {
+            margin-left: 1.5rem;
             color: var(--text-light);
-            list-style: disc;
+            margin-top: 1rem;
         }
 
-        .contact-container {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
+        .full-list li { margin-bottom: 0.5rem; }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(74, 63, 53, 0.1);
-            color: var(--text-dark);
-        }
+        .vocab-list { list-style: none; margin-top: 1rem; }
+        .vocab-list li { margin-bottom: 0.5rem; font-weight: 600; }
+        .vocab-list span { font-weight: 400; color: var(--text-light); }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(253, 251, 247, 0.95);
-                text-align: center;
-                padding: 1rem 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            #home {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: rgba(253, 251, 247, 0.95); padding: 1rem 0; }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            #home { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -315,6 +254,7 @@
     <section id="lessons">
         <h2 class="section-title">Lessons & Learning</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Learning Finnish may feel challenging in the beginning, but every language starts with small steps. At SuomiHub, we focus on simple, practical lessons that help students use Finnish in everyday situations. Our beginner lessons introduce the most important parts of the language.</p>
+        
         <div class="grid">
             <div class="card">
                 <h3>👋 Greetings</h3>
@@ -344,9 +284,10 @@
                 </ul>
             </div>
         </div>
+
         <div class="card" style="margin-top: 2rem;">
             <h3>How to start learning Finnish step by step:</h3>
-            <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-light);">
+            <ul class="full-list">
                 <li>Begin with simple greetings and daily expressions.</li>
                 <li>Practice pronunciation by repeating words aloud.</li>
                 <li>Learn a few new words every day.</li>
@@ -355,79 +296,6 @@
             </ul>
             <h4 style="margin-top: 1.5rem; color: var(--primary-color);">⏱ Short practice tips:</h4>
             <p>Practice for 10–15 minutes every day. Listen to Finnish music or watch short videos. Write down new words and review them often. <em>Learning slowly but consistently will help you build confidence and enjoy the process.</em></p>
-        </div>
-
-        <div id="personas" style="margin-top: 5rem;">
-            <h2 class="section-title">Our Learners (Personas)</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;"> SuomiHub is designed for different types of students. These personas represent the real needs, goals, and challenges of learners using the platform. </p>
-            <div class="grid">
-                <div class="card">
-                    <h3 style="color: var(--primary-color);">👩‍🎓 Persona 1: New International Student</h3>
-                    <p><strong>Name:</strong> Anamika (21)</p>
-                    <h4 style="margin-top: 1rem;">Goals:</h4>
-                    <ul class="persona-bullets">
-                        <li>Learn basic Finnish quickly</li>
-                        <li>Understand simple everyday phrases</li>
-                        <li>Use Finnish in daily situations</li>
-                    </ul>
-                    <h4>Challenges:</h4>
-                    <ul class="persona-bullets">
-                        <li>Language is new and difficult</li>
-                        <li>Limited time to study</li>
-                        <li>Long explanations are confusing</li>
-                    </ul>
-                    <h4>How SuomiHub Helps:</h4>
-                    <ul class="persona-bullets">
-                        <li>Short and simple lessons</li>
-                        <li>Focus on useful everyday words</li>
-                        <li>Fast and easy learning approach</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-color);">👩 Persona 2: Exchange Student</h3>
-                    <p><strong>Name:</strong> Emma (22)</p>
-                    <h4 style="margin-top: 1rem;">Goals:</h4>
-                    <ul class="persona-bullets">
-                        <li>Learn useful Finnish phrases</li>
-                        <li>Practice basic communication</li>
-                        <li>Understand everyday language</li>
-                    </ul>
-                    <h4>Challenges:</h4>
-                    <ul class="persona-bullets">
-                        <li>Short time in Finland</li>
-                        <li>Needs quick learning</li>
-                        <li>Forgets new words easily</li>
-                    </ul>
-                    <h4>How SuomiHub Helps:</h4>
-                    <ul class="persona-bullets">
-                        <li>Provides short lessons</li>
-                        <li>Focus on common phrases</li>
-                        <li>Supports quick practice</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--primary-color);">👨‍🎓 Persona 3: University Student</h3>
-                    <p><strong>Name:</strong> Juka (24)</p>
-                    <h4 style="margin-top: 1rem;">Goals:</h4>
-                    <ul class="persona-bullets">
-                        <li>Improve basic Finnish</li>
-                        <li>Understand simple texts and speech</li>
-                        <li>Learn step by step</li>
-                    </ul>
-                    <h4>Challenges:</h4>
-                    <ul class="persona-bullets">
-                        <li>Busy with studies</li>
-                        <li>Limited time for long learning</li>
-                        <li>Needs simple explanations</li>
-                    </ul>
-                    <h4>How SuomiHub Helps:</h4>
-                    <ul class="persona-bullets">
-                        <li>Short structured lessons</li>
-                        <li>Breaks language into small parts</li>
-                        <li>Makes learning quick and clear</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -458,9 +326,9 @@
     </section>
 
     <section id="survey">
-        <h2 class="section-title">Student Survey Results</h2>
-        <div class="card" style="margin-bottom: 3rem;">
-            <p>This survey was done to find out what students think about SuomiHub as a learning and information platform. In total, 16 students answered the questions. The survey asked about how familiar students are with SuomiHub, how useful they find it, what “vibe” it gives, and if they would recommend it to others.</p>
+        <h2 class="section-title">SuomiHub Survey Insights</h2>
+        <div class="card">
+            <p>This survey was done to find out what students think about SuomiHub as a learning and information platform. In total, <strong>16 students</strong> answered the questions. The survey asked about how familiar students are with SuomiHub, how useful they find it, what “vibe” it gives, and if they would recommend it to others.</p>
             <p>Most students already know about SuomiHub. Only a few said they are not very familiar, while most said they are either somewhat familiar or very familiar. This shows that many students have heard about SuomiHub, even if they do not all use it regularly.</p>
             <p>For usefulness, most students gave positive answers. Many said it is “very useful,” and others said it is “somewhat useful.” This means students generally find SuomiHub helpful for learning, but it could still be improved to make it better for everyone.</p>
             <p>In the “vibe” question, the most common answers were “Study Buddy” and “Information Guide.” Some also chose “Cool Student Helper.” This shows that students see SuomiHub as a friendly and helpful tool for studying and getting information, not something complicated or formal.</p>
@@ -468,26 +336,42 @@
             <p>Overall, the results show that SuomiHub is seen as useful and supportive by most students. Still, improving the platform could help more students enjoy it and make more people recommend it. To show the results, we used bar graphs and pie charts to make the data easier to understand.</p>
         </div>
 
-        <div class="grid">
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Familiarity</h3>
-                <div class="chart-container">
-                    <div class="bar-wrapper"><div class="bar-label"><span>Very/Somewhat Familiar</span> <span>82%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 82%;"></div></div></div>
-                    <div class="bar-wrapper"><div class="bar-label"><span>Not Familiar</span> <span>18%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 18%;"></div></div></div>
+        <div class="grid" style="margin-top: 3rem;">
+            <div class="card chart-box">
+                <h4>Familiarity with SuomiHub</h4>
+                <div class="pie-chart" style="background: conic-gradient(var(--c1) 0% 44%, var(--c2) 44% 82%, var(--c4) 82% 100%);"></div>
+                <div class="bar-container">
+                    <div class="bar-row"><div class="bar-label">Very Familiar<span>44%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 44%; background: var(--c1);"></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Somewhat Familiar<span>38%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 38%; background: var(--c2);"></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Not Very Familiar<span>18%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 18%; background: var(--c4);"></div></div></div>
                 </div>
             </div>
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Usefulness</h3>
-                <div class="chart-container">
-                    <div class="bar-wrapper"><div class="bar-label"><span>Positive (Very/Somewhat)</span> <span>94%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 94%; background: #2a9d8f;"></div></div></div>
-                    <div class="bar-wrapper"><div class="bar-label"><span>Negative</span> <span>6%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 6%; background: #2a9d8f;"></div></div></div>
+
+            <div class="card chart-box">
+                <h4>How Useful is SuomiHub?</h4>
+                <div class="pie-chart" style="background: conic-gradient(var(--c3) 0% 56%, var(--c2) 56% 100%);"></div>
+                <div class="bar-container">
+                    <div class="bar-row"><div class="bar-label">Very Useful<span>56%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 56%; background: var(--c3);"></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Somewhat Useful<span>44%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 44%; background: var(--c2);"></div></div></div>
                 </div>
             </div>
-            <div class="card">
-                <h3 style="color: var(--primary-color);">Recommendations</h3>
-                <div class="chart-container">
-                    <div class="bar-wrapper"><div class="bar-label"><span>Yes</span> <span>88%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 88%; background: #e76f51;"></div></div></div>
-                    <div class="bar-wrapper"><div class="bar-label"><span>Maybe</span> <span>12%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 12%; background: #e76f51;"></div></div></div>
+
+            <div class="card chart-box">
+                <h4>The "Vibe" Score</h4>
+                <div class="pie-chart" style="background: conic-gradient(var(--c1) 0% 38%, var(--c2) 38% 76%, var(--c3) 76% 100%);"></div>
+                <div class="bar-container">
+                    <div class="bar-row"><div class="bar-label">Study Buddy<span>38%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 38%; background: var(--c1);"></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Info Guide<span>38%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 38%; background: var(--c2);"></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Cool Helper<span>24%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 24%; background: var(--c3);"></div></div></div>
+                </div>
+            </div>
+
+            <div class="card chart-box">
+                <h4>Recommendation Rate</h4>
+                <div class="pie-chart" style="background: conic-gradient(var(--c1) 0% 75%, var(--c4) 75% 100%);"></div>
+                <div class="bar-container">
+                    <div class="bar-row"><div class="bar-label">Would Recommend<span>75%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 75%; background: var(--c1);"></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Maybe<span>25%</span></div><div class="bar-bg"><div class="bar-fill" style="width: 25%; background: var(--c4);"></div></div></div>
                 </div>
             </div>
         </div>
@@ -504,7 +388,7 @@
             </div>
             <div class="card">
                 <h3>💡 Fun Learning Ideas</h3>
-                <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-light);">
+                <ul class="full-list">
                     <li>Watch a Finnish TV show with subtitles.</li>
                     <li>Learn five new words every day.</li>
                     <li>Try speaking Finnish with a friend for ten minutes daily.</li>
@@ -513,7 +397,7 @@
             <div class="card">
                 <h3>🎯 Mini Challenges</h3>
                 <p>These small challenges help learners stay motivated and enjoy the journey.</p>
-                <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-light);">
+                <ul class="full-list">
                     <li>Introduce yourself completely in Finnish.</li>
                     <li>Learn ten new words in one week.</li>
                     <li>Have a short conversation using simple phrases.</li>
@@ -524,18 +408,17 @@
 
     <section id="about">
         <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color);"> Our Story – SuomiHub </h3>
-                <p><strong>SuomiHub was officially launched in April 2026</strong> as a learning website made for students. The main idea was to make studying easier and less confusing, especially for people who need clear and simple materials.</p>
-                <p>Learning a new language can feel hard sometimes, but it is also exciting. SuomiHub was created for students who want to learn Finnish, feel more comfortable in Finland, and communicate confidently in daily life.</p>
-                <p>On SuomiHub, you can find step-by-step lessons, important vocabulary, helpful tips, and simple exercises. The goal is not just to learn words, but to actually understand and use Finnish in real situations.</p>
-                <p>Whether you are at school, talking to classmates, or exploring the city, SuomiHub is here to guide you and make learning Finnish easier and more enjoyable.</p>
-                <p>Before the official launch, the idea was carefully developed by focusing on real student needs. Many learners struggled with messy notes, unclear explanations, and lack of support outside class — so SuomiHub brings everything together in one clear place.</p>
-                <p>At first, the project was simple. But as it grew, organizing content became a challenge. This was solved by creating a clear structure with categories and easy-to-follow content.</p>
-                <p>After launching in April 2026, feedback from users helped improve the platform even more. Today, SuomiHub continues to grow with the mission of helping students learn together in a simple and supportive way.</p>
-            </div>
-            <div style="width: 100%; background: var(--card-bg); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow);">
+        <div class="about-content card">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color);"> Our Story – SuomiHub </h3>
+            <p><strong>SuomiHub was officially launched in April 2026</strong> as a learning website made for students. The main idea was to make studying easier and less confusing, especially for people who need clear and simple materials.</p>
+            <p>Learning a new language can feel hard sometimes, but it is also exciting. SuomiHub was created for students who want to learn Finnish, feel more comfortable in Finland, and communicate confidently in daily life.</p>
+            <p>On SuomiHub, you can find step-by-step lessons, important vocabulary, helpful tips, and simple exercises. The goal is not just to learn words, but to actually understand and use Finnish in real situations.</p>
+            <p>Whether you are at school, talking to classmates, or exploring the city, SuomiHub is here to guide you and make learning Finnish easier and more enjoyable.</p>
+            <p>Before the official launch, the idea was carefully developed by focusing on real student needs. Many learners struggled with messy notes, unclear explanations, and lack of support outside class — so SuomiHub brings everything together in one clear place.</p>
+            <p>At first, the project was simple. But as it grew, organizing content became a challenge. This was solved by creating a clear structure with categories and easy-to-follow content.</p>
+            <p>After launching in April 2026, feedback from users helped improve the platform even more. Today, SuomiHub continues to grow with the mission of helping students learn together in a simple and supportive way.</p>
+            
+            <div style="margin-top: 3rem;">
                 <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;"> 📅 Timeline – Key Milestones </h3>
                 <div class="grid">
                     <div class="card"><strong>2024</strong><br>Idea first started</div>
@@ -558,7 +441,6 @@
             <p>Students are encouraged to interact with each other, share their progress, and help create a positive and supportive learning environment.</p>
             <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(212, 138, 106, 0.1); border-radius: 10px;">
                 <h4 style="color: var(--primary-color);">Get in Touch</h4>
-                <p>If you have questions, suggestions, or feedback, feel free to contact us.</p>
                 <p style="font-weight: 600; font-size: 1.2rem;">📧 suomihub@gmail.com</p>
             </div>
             <p>Follow SuomiHub on social media to receive new lessons, learning tips, and updates!</p>
